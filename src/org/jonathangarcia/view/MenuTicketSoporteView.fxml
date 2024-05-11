@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jonathangarcia.controller.MenuTicketSoporteController">
+   <children>
+      <ImageView fitHeight="750.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/MenuTickets.png" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="cmbCliente" layoutX="376.0" layoutY="192.0" prefHeight="32.0" prefWidth="210.0" style="-fx-background-color: #D9C680;" />
+      <TextField fx:id="tfTicketId" layoutX="81.0" layoutY="192.0" prefHeight="39.0" prefWidth="197.0" style="-fx-background-color: #D9C680;" />
+      <TextArea fx:id="taDescripcion" layoutX="50.0" layoutY="338.0" prefHeight="148.0" prefWidth="388.0" style="-fx-background-color: #EFE5C1;" wrapText="true" />
+      <TableView fx:id="tbTickets" layoutX="500.0" layoutY="287.0" prefHeight="421.0" prefWidth="662.0" style="-fx-background-color: #EFE5C1;">
+        <columns>
+          <TableColumn fx:id="colTicket" prefWidth="59.0" text="Ticket Id" />
+          <TableColumn fx:id="colDescrip" prefWidth="237.0" text="Descripción" />
+            <TableColumn fx:id="colEstat" prefWidth="96.0" text="Estatus" />
+            <TableColumn fx:id="colCliente" prefWidth="157.0" text="Cliente" />
+            <TableColumn fx:id="colFactura" prefWidth="112.0" text="Factura Id" />
+        </columns>
+      </TableView>
+      <Button fx:id="BTNVaciar" layoutX="232.0" layoutY="662.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="123.0" style="-fx-background-radius: 20; -fx-background-color: #D9C680;" text="Vaciar Form">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="BTNGuardado" layoutX="62.0" layoutY="660.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="126.0" style="-fx-background-radius: 20; -fx-background-color: #D9C680;" text="Guardar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="cmbFactura" layoutX="682.0" layoutY="193.0" prefHeight="32.0" prefWidth="210.0" style="-fx-background-color: #D9C680;" />
+      <ComboBox fx:id="cmbEstatus" layoutX="77.0" layoutY="589.0" prefHeight="32.0" prefWidth="210.0" />
+      <Button fx:id="BTNVolver" layoutX="1088.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="73.0" prefWidth="74.0" style="-fx-background-radius: 600; -fx-background-color: #F2A30F;" text="Regresar" />
+   </children>
+</AnchorPane>
