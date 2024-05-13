@@ -1,20 +1,24 @@
-USE SuperDB;
+Use SuperDB;
 SET GLOBAL time_zone = '-6:00';
 
+-- ------------------------------ Asignar Encargado ------------------------------ --
+
 Delimiter $$
-Create function FN_AsignarEncargado(encargId int) returns boolean
+Create function FN_AsignarEncargado(encId int) returns boolean
 deterministic
-begin
+Begin
 	declare i int default 2;
     declare a int;
     select count(*) into a from Empleados;
 		while i <= a do
-			update Empleados set encargadoId = encargId where empleadoId = i;
+			update Empleados set encargadoId = encId where empleadoId = i;
 			set i = i +1;
 		end while;
         return true;
-	end$$
+End$$
 Delimiter ;
+
+-- ------------------------------ Total Factura ------------------------------ --
 
 Delimiter $$
 Create function FN_totalFactura (factId int) returns decimal(10,2) deterministic
@@ -48,6 +52,8 @@ Begin
 End $$
 Delimiter ;
 
+-- ------------------------------ Descuento Masivo ------------------------------ --
+
 delimiter $$
 create function FN_descuentoMasivo(descuento double) returns boolean
 deterministic
@@ -69,6 +75,8 @@ begin
 end $$
 delimiter ;
 
+-- ------------------------------ Cambio Status ------------------------------ --
+
 delimiter $$
 create function FN_cambioStatus(estatus VARCHAR(30)) returns boolean
 deterministic
@@ -85,6 +93,8 @@ begin
   return true;
 end $$
 delimiter ;
+
+-- ------------------------------ Descuento Stock ------------------------------ --
 
 delimiter $$
 create function FN_desStok(proId int) returns int deterministic
@@ -114,6 +124,8 @@ begin
 	return Stok; 
 end $$
 delimiter ;
+
+-- ------------------------------ Total Stock ------------------------------ --
 
 Delimiter $$
 Create trigger tg_totalStok

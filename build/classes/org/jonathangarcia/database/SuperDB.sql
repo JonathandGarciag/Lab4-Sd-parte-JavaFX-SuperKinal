@@ -1,7 +1,8 @@
--- drop database if exists SuperDB; --
-
--- Create database SuperDB;
+drop database if exists SuperDB; --
+ 
+Create database if not exists SuperDB;
 Use SuperDB;
+SET GLOBAL time_zone = '-6:00';
 
 Create Table Cargos(
 	cargoId int not null auto_increment,
@@ -148,7 +149,7 @@ Insert into Clientes(nombre, apellido, telefono, direccion, nit) values
 select * from Clientes;
 
     
-SET GLOBAL time_zone = '-6:00';
+
     
     
     

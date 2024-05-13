@@ -22,6 +22,13 @@ import org.jonathangarcia.controller.MenuPrincipalController;
 import org.jonathangarcia.controller.MenuProductosController;
 import org.jonathangarcia.controller.MenuTicketSoporteController;
 import org.jonathangarcia.controller.FormDistribuidorController;
+import org.jonathangarcia.controller.MenuComprasViewController;
+import org.jonathangarcia.controller.FormsComprasController;
+import org.jonathangarcia.controller.MenuCategoriaProductosController;
+import org.jonathangarcia.controller.FormCategoriaProductoController;
+import org.jonathangarcia.controller.MenuPromocionesController;
+import org.jonathangarcia.controller.FormPromocionController;
+import org.jonathangarcia.controller.MenuFacturaController;
 
 /**
  *
@@ -139,6 +146,65 @@ public class Main extends Application {
             formDistribuidorView.setStage(this);
         }catch(Exception e){
             System.out.println(e.getMessage());
+        }
+    }
+    
+    public void menuComprasView(){
+        try{
+            MenuComprasViewController menuComprasView = (MenuComprasViewController) switchScene("MenuComprasView.fxml", 600, 500);
+            menuComprasView.setStage(this);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void formComprasView(int op){
+        try{
+            FormsComprasController formComprasView = (FormsComprasController) switchScene("FormsComprasView.fxml", 400, 500);
+            formComprasView.setOp(op);
+            formComprasView.setStage(this);
+            formComprasView.setStage(this);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void menuCategoriaProductosView() {
+        try{
+            MenuCategoriaProductosController menuCategoriaProductosView = (MenuCategoriaProductosController)switchScene("MenuCategoriaProductosView.fxml",500,400);
+            menuCategoriaProductosView.setStage(this);
+        }catch(Exception e){
+           System.out.println(e.getMessage());
+        }
+    }
+    
+    public void formCategoriaProductosView(int op) {
+        try{
+            FormCategoriaProductoController formCategoriaProductosView = (FormCategoriaProductoController)switchScene("FormCategoriaProductoView.fxml",500,400);
+            formCategoriaProductosView.setOp(op);
+            formCategoriaProductosView.setStage(this);
+        }catch(Exception e){
+           System.out.println(e.getMessage());
+        }
+    }
+    
+    public void menuPromociones(){
+        try{
+            MenuPromocionesController menuPromociones = (MenuPromocionesController)switchScene("MenuPromocionesView.fxml", 1200,750);
+            menuPromociones.setStage(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void formPromociones(int op){
+        try{
+            FormPromocionController formPromociones = (FormPromocionController) switchScene("FormPromocionView.fxml", 1200, 800);
+            formPromociones.setOp(op);
+            formPromociones.setStage(this);
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
 

@@ -56,6 +56,7 @@ public class MenuClienteController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cargarDatos();
     }   
+    
     public void cargarDatos(){
         if(op == 3){
             tblClientes.getItems().add(buscarCliente());
@@ -70,6 +71,7 @@ public class MenuClienteController implements Initializable {
         colDireccion.setCellValueFactory(new PropertyValueFactory<Cliente, String>("direccion"));
         colNit.setCellValueFactory(new PropertyValueFactory<Cliente, String>("nit"));
     }
+    
     public ObservableList<Cliente> listarClientes(){
         ArrayList<Cliente> clientes = new ArrayList<>();
         try{

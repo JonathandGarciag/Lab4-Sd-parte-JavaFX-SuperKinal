@@ -46,7 +46,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <TextField fx:id="tfDistribuidorId" alignment="CENTER_RIGHT" layoutX="701.0" layoutY="173.0" onAction="#handleButtonAction" prefHeight="42.0" prefWidth="331.0" promptText="Ingrese el id del cliente a buscar" style="-fx-background-radius: 20; -fx-background-color: #0f8dbf;">
+      <TextField fx:id="tfDistribuidorId" alignment="CENTER_RIGHT" layoutX="701.0" layoutY="173.0" onAction="#handleButtonAction" prefHeight="42.0" prefWidth="331.0" promptText="Ingrese el id del distribuidor" style="-fx-background-radius: 20; -fx-background-color: #0f8dbf;">
          <font>
             <Font size="14.0" />
          </font>

@@ -212,7 +212,7 @@ delimiter ;
              
 -- Editar
 Delimiter $$
-Create Procedure sp_editarCompra(in compId int,in fecCom date, in totalCom DECIMAL(10,2))
+Create Procedure sp_editarCompra(in compId int,in fecCom date, in totalCom decimal(10,2))
 	Begin
 		Update Compras
 			Set
