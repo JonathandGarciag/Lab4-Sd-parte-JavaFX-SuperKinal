@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="747.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jonathangarcia.controller.MenuComprasViewController">
+   <children>
+      <ImageView fitHeight="1000.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/MenuCompras.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnAgregarComp" layoutX="760.0" layoutY="23.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="106.0" style="-fx-background-color: #F2A30F; -fx-background-radius: 20;" text="Agregar" />
+      <Button fx:id="btnBuscarComp" layoutX="774.0" layoutY="179.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="37.0" prefWidth="81.0" style="-fx-background-color: #F2A30F;" text="Buscar" />
+      <Button fx:id="btnSalirComp" layoutX="505.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="37.0" prefWidth="67.0" style="-fx-background-color: #F2A30F;" text="Salir" />
+      <TableView fx:id="tblCompras" layoutX="139.0" layoutY="263.0" prefHeight="424.0" prefWidth="334.0">
+        <columns>
+          <TableColumn fx:id="colComprasId" prefWidth="89.0" text="compra_Id" />
+          <TableColumn fx:id="colfechaCompra" prefWidth="108.0" text="fecha_Compra" />
+            <TableColumn fx:id="cototalCompra" prefWidth="137.0" text="total_Compra" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnEditarComp" layoutX="760.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="106.0" style="-fx-background-color: #F2A30F; -fx-background-radius: 20;" text="Editar" />
+      <Button fx:id="btnEliminarComp" layoutX="644.0" layoutY="23.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="106.0" style="-fx-background-color: #F2A30F; -fx-background-radius: 20;" text="Eliminar" />
+      <TextField fx:id="tfComprasId" layoutX="478.0" layoutY="179.0" prefHeight="37.0" prefWidth="256.0" promptText="Ingrese el id compras" />
+   </children>
+</AnchorPane>

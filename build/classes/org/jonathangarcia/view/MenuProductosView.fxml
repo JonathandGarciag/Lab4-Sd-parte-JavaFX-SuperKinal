@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="850.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jonathangarcia.controller.MenuProductosController">
+   <children>
+      <ImageView fitHeight="850.0" fitWidth="1600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/New_Productos.png" />
+         </image>
+      </ImageView>
+      <TextArea layoutX="550.0" layoutY="274.0" prefHeight="205.0" prefWidth="463.0" style="-fx-background-color: #F2A30F;" />
+      <TextField fx:id="tfVentaUni" layoutX="549.0" layoutY="597.0" prefHeight="54.0" prefWidth="329.0" style="-fx-background-color: #F4BC55;" />
+      <TextField fx:id="tfVentaMay" layoutX="123.0" layoutY="732.0" prefHeight="60.0" prefWidth="326.0" style="-fx-background-color: #F4BC55;" />
+      <TextField fx:id="tfCantidadStock" layoutX="121.0" layoutY="594.0" prefHeight="61.0" prefWidth="327.0" style="-fx-background-color: #F4BC55;" />
+      <TextField fx:id="tfProductoId" editable="false" layoutX="1181.0" layoutY="300.0" prefHeight="53.0" prefWidth="329.0" style="-fx-background-color: #F4BC55;" />
+      <TextField fx:id="tfNombreProd" layoutX="1154.0" layoutY="427.0" prefHeight="53.0" prefWidth="393.0" style="-fx-background-color: #F4BC55 #F4BC55;" />
+      <ImageView fx:id="imgCargarImg" fitHeight="309.0" fitWidth="408.0" layoutX="1140.0" layoutY="522.0" onDragDropped="#handleOnDrop" onDragOver="#handleOnDrag" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnAgregarProd" layoutX="1439.0" layoutY="156.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="53.0" prefWidth="106.0" style="-fx-background-color: #F4BC55;" text="Agregar">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="btnRegresar" layoutX="42.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="71.0" prefWidth="71.0" style="-fx-background-color: #F4BC55; -fx-background-radius: 90;" text="Regresar" />
+      <Button fx:id="btnVaciar" layoutX="1034.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="53.0" prefWidth="80.0" style="-fx-background-color: #F4BC55;" text="Vaciar">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button layoutX="1122.0" layoutY="159.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="313.0" style="-fx-background-color: #F2A30F;" text="Tabla_Productos">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="cmDistribuidorId" layoutX="122.0" layoutY="399.0" prefHeight="53.0" prefWidth="323.0" style="-fx-background-color: #F4BC55;" />
+      <ComboBox fx:id="cmCategoriaProdId" layoutX="124.0" layoutY="261.0" prefHeight="53.0" prefWidth="323.0" style="-fx-background-color: #F4BC55;" />
+      <TextField fx:id="cmPrecioComp" layoutX="552.0" layoutY="744.0" prefHeight="61.0" prefWidth="323.0" style="-fx-background-color: #F4BC55;" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="org.jonathangarcia.controller.TablaProductosController">
+   <children>
+      <ImageView fitHeight="750.0" fitWidth="1300.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Tabla_Producto.png" />
+         </image>
+      </ImageView>
+      <TableView layoutX="178.0" layoutY="239.0" prefHeight="490.0" prefWidth="1106.0">
+        <columns>
+          <TableColumn prefWidth="82.0" text="Producto_Id" />
+          <TableColumn prefWidth="105.0" text="Nombre" />
+            <TableColumn prefWidth="113.0" text="Cantidad_Stock" />
+            <TableColumn prefWidth="110.0" text="Venta_Mayor" />
+            <TableColumn prefWidth="132.0" text="Venta_Unitario" />
+            <TableColumn prefWidth="108.0" text="Precio_Compra" />
+            <TableColumn prefWidth="187.0" text="Descripcion" />
+            <TableColumn prefWidth="152.0" text="Cat-Producto_Id" />
+            <TableColumn prefWidth="116.0" text="Distribuidor_Id" />
+        </columns>
+      </TableView>
+      <Button layoutX="23.0" layoutY="230.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="116.0" style="-fx-background-color: #F18F26;" text="Editar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField alignment="CENTER_RIGHT" layoutX="828.0" layoutY="169.0" prefHeight="47.0" prefWidth="310.0" promptText="Ingrese el id del productos" style="-fx-background-color: #FFCD94;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Button layoutX="23.0" layoutY="317.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="116.0" style="-fx-background-color: #F18F26;" text="Eliminar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBuscar" layoutX="1148.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #F18F26;">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Lupa.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="169.0" fitWidth="357.0" layoutX="254.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

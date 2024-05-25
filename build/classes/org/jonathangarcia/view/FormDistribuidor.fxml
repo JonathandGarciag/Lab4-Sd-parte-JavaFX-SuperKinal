@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jonathangarcia.controller.FormDistribuidorController">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Distribuidores%20Form.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnGuardarDistri" layoutX="20.0" layoutY="663.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="132.0" style="-fx-background-color: #16498C; -fx-background-radius: 20;" text="Guardar" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnCancelarDistri" layoutX="17.0" layoutY="717.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="132.0" style="-fx-background-color: #16498C; -fx-background-radius: 20;" text="Cancelar" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tfNomDistri" layoutX="17.0" layoutY="308.0" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="204.0" style="-fx-background-color: #FFCF98;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfDirecDistri" layoutX="273.0" layoutY="309.0" onAction="#handleButtonAction" prefHeight="33.0" prefWidth="204.0" style="-fx-background-color: #FFCF98;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfDistribuidorId" editable="false" layoutX="157.0" layoutY="220.0" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="204.0" style="-fx-background-color: #FFCF98;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfNitDistri" layoutX="20.0" layoutY="430.0" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="204.0" style="-fx-background-color: #FFCF98;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfTelDistri" layoutX="273.0" layoutY="430.0" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="204.0" style="-fx-background-color: #FFCF98;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfWebDistri" layoutX="160.0" layoutY="528.0" onAction="#handleButtonAction" prefHeight="32.0" prefWidth="204.0" style="-fx-background-color: #FFCF98;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

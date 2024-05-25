@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="org.jonathangarcia.controller.MenuEmpleadosController">
+   <children>
+      <ImageView fitHeight="750.0" fitWidth="1400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/MenuEmpleados.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblEmpleados" layoutX="259.0" layoutY="214.0" prefHeight="479.0" prefWidth="896.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="112.0" text="ID_Empleado" />
+          <TableColumn fx:id="colNombre" prefWidth="112.0" text="Nombre" />
+            <TableColumn fx:id="colApellido" prefWidth="112.0" text="Apellido" />
+            <TableColumn fx:id="colSueldo" prefWidth="112.0" text="Sueldo" />
+            <TableColumn fx:id="colHoraEntrada" prefWidth="112.0" text="Hora_Entrada" />
+            <TableColumn fx:id="colHoraSalida" prefWidth="112.0" text="Hora_Salida" />
+            <TableColumn fx:id="colCargo" prefWidth="112.0" text="Cargo" />
+            <TableColumn fx:id="colEncargado" prefWidth="112.0" text="Empleado" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAgregarEmple" layoutX="68.0" layoutY="263.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="57.0" prefWidth="107.0" style="-fx-background-radius: 20; -fx-background-color: #2B62AB;" text="Agregar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEditarEmple" layoutX="66.0" layoutY="366.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="57.0" prefWidth="107.0" style="-fx-background-radius: 20; -fx-background-color: #2B62AB;" text="Editar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEliminarEmple" layoutX="59.0" layoutY="482.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="115.0" style="-fx-background-radius: 20; -fx-background-color: #2B62AB;" text="Eliminar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnRegresarEmple" layoutX="15.0" layoutY="137.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="122.0" style="-fx-background-radius: 20; -fx-background-color: #2B62AB;" text="Regresar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBuscarEmple" layoutX="1244.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="29.0" prefWidth="114.0" style="-fx-background-color: #2B62AB;">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Lupa.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <TextField fx:id="tfEmpleadoId" layoutX="828.0" layoutY="149.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="331.0" promptText="Ingrese el id del empleado para buscar" />
+   </children>
+</AnchorPane>
