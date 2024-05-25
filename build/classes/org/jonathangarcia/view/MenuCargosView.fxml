@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jonathangarcia.controller.MenuCargosController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/CargoMenu.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblCargos" layoutX="29.0" layoutY="114.0" prefHeight="270.0" prefWidth="335.0">
+        <columns>
+          <TableColumn fx:id="colCargoId" prefWidth="59.20001220703125" text="Cargo Id" />
+          <TableColumn fx:id="colNombreCargo" prefWidth="105.59998321533203" text="Nombre Cargo" />
+            <TableColumn fx:id="colDescripcion" prefWidth="168.79998779296875" text="Descripcion" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnEditar" layoutX="409.0" layoutY="262.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #0F8DBF; -fx-background-radius: 15;" text="Editar" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnEliminar" layoutX="409.0" layoutY="221.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #0F8DBF; -fx-background-radius: 15;" text="Eliminar" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnAgregar" layoutX="409.0" layoutY="184.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #0F8DBF; -fx-background-radius: 15;" text="Agregar" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnBuscar" layoutX="419.0" layoutY="73.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="60.0" style="-fx-background-color: #0F8DBF;" text="🔎" textAlignment="CENTER" textFill="#fffdfd">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Button>
+      <TextField fx:id="tfBarra" alignment="CENTER" layoutX="250.0" layoutY="74.0" prefHeight="26.0" prefWidth="166.0" promptText="INGRESE UN ID" />
+      <Button fx:id="btnRegresar" layoutX="22.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="44.0" style="-fx-background-color: #0F8DBF; -fx-background-radius: 15;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="10.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
