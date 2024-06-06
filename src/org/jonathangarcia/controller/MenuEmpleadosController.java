@@ -116,9 +116,7 @@ public class MenuEmpleadosController implements Initializable {
             }catch(SQLException e){
                 System.out.println(e.getMessage());
             }
-        }
-        
-        
+        }   
         return FXCollections.observableList(empleados);
     }
     

@@ -4,6 +4,8 @@ Create database if not exists SuperDB;
 Use SuperDB;
 SET GLOBAL time_zone = '-6:00';
 
+
+
 Create Table Cargos(
 	cargoId int not null auto_increment,
     nombreCargo varchar(30) not null,
@@ -90,12 +92,12 @@ Create Table DetalleCompra(
 Create Table Empleados(
     empleadoId int not null auto_increment,
     nombreEmpleado varchar(30) not null,
-    apellidoEmpleado varchar(30),
-    sueldo decimal(10,2),
-    horaEntrada time,
-    horaSalida time,
+    apellidoEmpleado varchar(30) not null,
+    sueldo decimal(10,2) not null,
+    horaEntrada time not null,
+    horaSalida time not null,
     cargoId int not null,
-    encargadoId int not null,
+    encargadoId int,
     Primary Key PK_empleadoId(empleadoId),
     Constraint FK_Productos_Cargos Foreign Key Productos(cargoId)
         References Cargos(cargoId),
@@ -145,6 +147,10 @@ Insert into Clientes(nombre, apellido, telefono, direccion, nit) values
 	('Luis', 'Cuxun', '1234-5678', 'Ciudad', '165-489'),
     ('Estuardo', 'Garcia', '9876-5432', 'Ciudad', '489-789'),
     ('Carlos', 'Mendez', '1899-1596', 'Ciudad', '132-489');
+    
+Insert into Cargos(nombreCargo, descripcionCargo) values
+	('Administrador', 'Administrador del "A"'),
+    ('Supervisor', 'Supervisor de piso');
     
 select * from Clientes;
 

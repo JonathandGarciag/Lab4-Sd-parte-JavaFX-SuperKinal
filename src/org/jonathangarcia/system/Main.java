@@ -30,6 +30,8 @@ import org.jonathangarcia.controller.MenuPromocionesController;
 import org.jonathangarcia.controller.FormPromocionController;
 import org.jonathangarcia.controller.MenuEmpleadosController;
 import org.jonathangarcia.controller.FormEmpleadoController;
+import org.jonathangarcia.controller.LoginKinalSuperController;
+import org.jonathangarcia.controller.RegistrarseKinalSuperController;
 
 
 /**
@@ -227,6 +229,26 @@ public class Main extends Application {
             FormEmpleadoView.setStage(this);
         }catch(Exception e){
             System.out.println(e.getMessage());
+        }
+    }
+    
+    public void loginView(){
+        try{
+            LoginKinalSuperController loginView = (LoginKinalSuperController)switchScene("LoginView.fxml" , 500, 700);
+            loginView.setStage(this);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void formRegistroView(){
+        try{
+            RegistrarseKinalSuperController formRegistroView = (RegistrarseKinalSuperController)switchScene("FormUsuarioView.fxml" , 700, 500);
+            formRegistroView.setStage(this);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 

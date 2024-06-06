@@ -17,7 +17,9 @@ public class Productos {
     private String descripcionProducto;
     private int cantidadStock;
     private int distribuidorId;
+    private String distribuidor;
     private int categoriaProductosId;
+    private String categoriaProdu;
     private double precioVentaUnitario;
     private double precioVentaMayor;
     private double precioCompra;
@@ -27,7 +29,21 @@ public class Productos {
         
     }
 
-    public Productos(String nombreProducto, String descripcionProducto, int cantidadStock, double precioVentaUnitario, double precioVentaMayor, double precioCompra, Blob imagenProducto, int distribuidorId, int categoriaProductosId) {
+    public Productos(int productoId, String nombreProducto, String descripcionProducto, int cantidadStock, double precioVentaUnitario, double precioVentaMayor, double precioCompra, Blob imagenProducto, String distribuidor, String categoriaProdu) {
+        this.productoId = productoId;
+        this.nombreProducto = nombreProducto;
+        this.distribuidor = distribuidor;
+        this.categoriaProdu = categoriaProdu;
+        this.descripcionProducto = descripcionProducto;
+        this.cantidadStock = cantidadStock;
+        this.precioVentaUnitario = precioVentaUnitario;
+        this.precioVentaMayor = precioVentaMayor;
+        this.precioCompra = precioCompra;
+        this.imagenProducto = imagenProducto;
+    }
+    
+    public Productos(int productoId, String nombreProducto, String descripcionProducto, int cantidadStock, double precioVentaUnitario, double precioVentaMayor, double precioCompra, Blob imagenProducto, int distribuidorId, int categoriaProductosId) {
+        this.productoId = productoId;
         this.nombreProducto = nombreProducto;
         this.distribuidorId = distribuidorId;
         this.categoriaProductosId = categoriaProductosId;
@@ -103,6 +119,22 @@ public class Productos {
         this.imagenProducto = imagenProducto;
     }
 
+    public String getDistribuidor() {
+        return distribuidor;
+    }
+
+    public void setDistribuidor(String distribuidor) {
+        this.distribuidor = distribuidor;
+    }
+
+    public String getCategoriaProdu() {
+        return categoriaProdu;
+    }
+
+    public void setCategoriaProdu(String categoriaProdu) {
+        this.categoriaProdu = categoriaProdu;
+    }
+
     public int getDistribuidorId() {
         return distribuidorId;
     }
@@ -119,7 +151,8 @@ public class Productos {
         this.categoriaProductosId = categoriaProductosId;
     }
     
-    
-    
-    
+    @Override
+    public String toString(){
+        return "ID: "+ productoId + " | " + "Nombre: " + nombreProducto;
+    }
 }

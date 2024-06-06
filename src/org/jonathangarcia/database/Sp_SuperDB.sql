@@ -490,7 +490,7 @@ Create Procedure sp_listarEmpleados()
 	Begin
 		Select Empleados.empleadoId, Empleados.nombreEmpleado, Empleados.apellidoEmpleado, Empleados.sueldo, Empleados.horaentrada, Empleados.horaSalida,
         Concat('ID: ', Cargos.cargoId , ' | ' , 'Cargo: ', Cargos.nombreCargo) AS 'cargo',
-        Concat('ID: ', E2.encargadoId, ' | ' , 'Nombre: ' ,E2.nombreEmpleado) AS 'Encargado' from Empleados 
+        Concat('ID: ', E2.empleadoId, ' | ' , 'Nombre: ' ,E2.nombreEmpleado) AS 'Encargado' from Empleados 
 		JOIN Cargos ON Empleados.cargoId = Cargos.cargoId
 		Left JOIN Empleados E2 ON Empleados.encargadoId = E2.empleadoId;
 	End$$
@@ -508,7 +508,7 @@ Delimiter $$
 Create procedure sp_buscarEmpleados(in empleId int)
 	Begin
 		SELECT Empleados.empleadoId, Empleados.nombreEmpleado, Empleados.apellidoEmpleado, Empleados.sueldo, Empleados.horaentrada, Empleados.horaSalida,
-        Concat("Id: ", Cargos.cargoId, " | ", Cargos.nombreCargo) AS 'cargo', 
+        Concat('Id: ', Cargos.cargoId, ' | ', Cargos.nombreCargo) AS 'cargo', 
         Concat(E2.nombreEmpleado, ' ', E2.apellidoEmpleado) AS 'Encargado' from Empleados 
 		JOIN Cargos ON Empleados.cargoId = Cargos.cargoId
 		Left JOIN Empleados E2 ON E.encargadoId = E2.empleadoId
@@ -738,13 +738,13 @@ Delimiter ;
 -- ======================== Empleado Complement ======================== --
 
 Delimiter $$
-Create Procedure sp_AsignarEncargado(in empId int,in encId int) 
-	
+Create Procedure sp_AsignarEncargado(in empleId int,in encId int) 
     Begin
 		Update Empleados 
 			Set encargadoId = encId
-					Where empleadoId = empId;
+					Where empleadoId = empleId;
 	End$$
 Delimiter ;
+
 
 

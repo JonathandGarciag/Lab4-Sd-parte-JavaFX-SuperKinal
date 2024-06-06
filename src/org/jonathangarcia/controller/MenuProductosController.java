@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -14,12 +14,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -27,6 +31,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 import org.jonathangarcia.dao.Conexion;
+import org.jonathangarcia.model.CategoriaProductos;
+import org.jonathangarcia.model.Distribuidor;
 import org.jonathangarcia.model.Productos;
 import org.jonathangarcia.system.Main;
 import org.jonathangarcia.utlis.SuperKinalAlert;
@@ -70,6 +76,9 @@ public class MenuProductosController implements Initializable {
     
     @FXML
     TextArea taDescripcionProd;
+    
+    @FXML
+    ComboBox cmbCatego, cmbDistribu;
     
     @FXML
     ImageView imgCargarImg;
@@ -138,6 +147,7 @@ public class MenuProductosController implements Initializable {
             resultSet = statement.executeQuery();
             
                 if(resultSet.next()){
+                   int productoId = resultSet.getInt("productoId"); 
                    String nombreProducto = resultSet.getString("nombreProducto"); 
                    String descripcionProducto = resultSet.getString("descripcionProducto"); 
                    Integer cantidadStock = resultSet.getInt("cantidadStock"); 
@@ -145,10 +155,10 @@ public class MenuProductosController implements Initializable {
                    Double precioVentaMayor = resultSet.getDouble("precioVentaMayor"); 
                    Double precioCompra = resultSet.getDouble("precioCompra"); 
                    Blob imagenProducto = resultSet.getBlob("imagenProducto"); 
-                   Integer distribuidorId = resultSet.getInt("distribuidorId"); 
-                   Integer categoriaProductoId = resultSet.getInt("categoriaProductoId");
+                   int distribuidorId = resultSet.getInt("distribuidorId"); 
+                   int categoriaId = resultSet.getInt("categoriaProductosId");
                    
-                   producto = new Productos(nombreProducto, descripcionProducto, cantidadStock, precioVentaUnitario, precioVentaMayor, precioCompra, imagenProducto, distribuidorId, categoriaProductoId);
+                   producto = new Productos(productoId, nombreProducto, descripcionProducto, cantidadStock, precioVentaUnitario, precioVentaMayor, precioCompra, imagenProducto, distribuidorId, categoriaId);
                 }
             
         }catch(SQLException e){
@@ -157,6 +167,135 @@ public class MenuProductosController implements Initializable {
             
         }
         return producto;
+    }
+    
+    public void eliminarProducto(int prodId){
+        try{
+            conexion = Conexion.getInstance().obtenerConexion();
+            String sql =  "call sp_eliminarProducto(?)";
+            statement = conexion.prepareStatement(sql);
+            statement.setInt(1, prodId);
+            statement.execute();
+            
+        }catch(SQLException e){
+            e.printStackTrace();
+        }finally{
+            try{
+                if(conexion != null){
+                    conexion.close();
+                }
+                if(statement != null){
+                    statement.close();
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            
+        }
+    }
+    
+    public ObservableList<CategoriaProductos> listarCategoriaProductos(){
+        ArrayList<CategoriaProductos> CategoriaProducto = new ArrayList<>();
+        
+        try{
+            conexion = Conexion.getInstance().obtenerConexion();
+            String sql = "call sp_listarCategoriaProductos();";
+            statement = conexion.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
+                int categoriaProductosId = resultSet.getInt("categoriaProductosId");
+                String nombreCategoria = resultSet.getString("nombreCategoria");
+                String descripcionCategoria = resultSet.getString("descripcionCategoria");
+                
+                CategoriaProducto.add(new CategoriaProductos(categoriaProductosId, nombreCategoria, descripcionCategoria));
+            }
+            
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try{
+                if(conexion != null){
+                    conexion.close();
+                }
+                if(statement != null){
+                    statement.close();
+                }
+                if(resultSet != null){
+                    resultSet.close();
+                }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
+        
+        return FXCollections.observableList(CategoriaProducto);
+    } 
+    
+    public ObservableList<Distribuidor> listarDistribuidor(){
+        ArrayList<Distribuidor> distribuidor = new ArrayList<>();
+        try{
+            conexion = Conexion.getInstance().obtenerConexion();
+            String sql = "call sp_listarDistribuidores();";
+            statement = conexion.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                int distribuidorId = resultSet.getInt("distribuidorId");
+                String nombreDistribuidor = resultSet.getString("nombreDistribuidor");
+                String direccionDistribuidor = resultSet.getString("direccionDistribuidor");
+                String nitDistribuidor = resultSet.getString("nitDistribuidor");
+                String telefonoDistribuidor = resultSet.getString("telefonoDistribuidor");
+                String web = resultSet.getString("web");
+                distribuidor.add(new Distribuidor(distribuidorId, nombreDistribuidor, direccionDistribuidor, nitDistribuidor, telefonoDistribuidor, web));
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try{
+                if(resultSet != null){
+                    resultSet.close();
+                }
+                if(statement != null){
+                    statement.close();
+                }
+                if(conexion != null){
+                    conexion.close();
+                }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
+        return FXCollections.observableList(distribuidor);
+    }    
+    
+    public int obtenerIndexCategoria() {
+        int index = -1;
+        int categoriaId = Integer.parseInt(tfProductoId.getText()); 
+
+        for (int i = 0; i < cmbCatego.getItems().size(); i++) {
+            CategoriaProductos categoria = (CategoriaProductos) cmbCatego.getItems().get(i);
+            if (categoria.getCategoriaProductosId() == categoriaId) {
+                index = i;
+                break;
+            }
+        }
+
+        return index;
+    }
+    
+    public int obtenerIndexDistribuidor() {
+        int index = -1;
+        int distribuidorId = Integer.parseInt(tfProductoId.getText()); 
+        
+        for (int i = 0; i < cmbDistribu.getItems().size(); i++) {
+            Distribuidor distribuidor = (Distribuidor) cmbDistribu.getItems().get(i);
+            if (distribuidor.getDistribuidorId() == distribuidorId) {
+                index = i;
+                break;
+            }
+        }
+
+        return index;
     }
     
     public void vaciarProd(){

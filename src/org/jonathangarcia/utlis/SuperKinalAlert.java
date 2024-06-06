@@ -14,11 +14,9 @@ import javafx.scene.control.ButtonType;
  * @author informatica
  */
 public class SuperKinalAlert {
-    
     private static SuperKinalAlert instance;
     
-    private SuperKinalAlert(){
-        
+    private SuperKinalAlert(){   
     }
     
     public static SuperKinalAlert getInstance(){
@@ -72,6 +70,13 @@ public class SuperKinalAlert {
             action = alert.showAndWait();
         }
         return action;
+    }
+    
+    public void alertWelcome(String usuario){
+           Alert alert = new Alert(Alert.AlertType.WARNING);
+           alert.setTitle("BIENVENIDO!");
+           alert.setHeaderText("BIENVENIDO " +  usuario);
+           alert.showAndWait();
     }
     
 }

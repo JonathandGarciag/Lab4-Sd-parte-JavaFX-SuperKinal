@@ -47,9 +47,9 @@ public class Compras {
         this.totalCompra = totalCompra;
     }
 
-    @Override
-    public String toString() {
-        return "Compras{" + "comprasId=" + comprasId + ", fechaCompra=" + fechaCompra + ", totalCompra=" + totalCompra + '}';
-    }
+     @Override
+    public String toString(){
+        return "ID: " + comprasId + " | " + "Total: " + totalCompra;
+    } 
 
 }
